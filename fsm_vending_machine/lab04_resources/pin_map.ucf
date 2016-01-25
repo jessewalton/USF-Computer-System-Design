@@ -1,0 +1,23 @@
+# Inputs
+# Quarter, nickel dime mapped to L, C, R pushbuttons
+NET "quarter" LOC=P4;
+NET "dime" LOC=F5;
+NET "nickel" LOC=F6;
+# Soda mapped to UP pushbutton; diet to DOWN pushbutton
+NET "soda" LOC=N4;
+NET "diet" LOC=P3;
+
+# Mapped to board RESET button: !!!!!ACTIVE LOW!!!!!
+NET "reset" LOC=T15;
+
+# 100 MHz Clock
+NET "clk" LOC=L15;
+
+# Outputs
+# Soda_given mapped to LED7; diet to LED6
+NET "soda_given" LOC=N12;
+NET "diet_given" LOC=P16;
+# change_count mapped to LED2(MSB)-LED0(LSB)
+NET "change_count[2]" LOC=N14;
+NET "change_count[1]" LOC=M14;
+NET "change_count[0]" LOC=U18;
