@@ -1,0 +1,25 @@
+
+NET "switches[0]" LOC = A10;
+NET "switches[1]" LOC = D14;
+NET "switches[2]" LOC = C14;
+NET "switches[3]" LOC = P15;
+NET "switches[4]" LOC = P12;
+NET "switches[5]" LOC = R5;
+NET "switches[6]" LOC = T5;
+NET "switches[7]" LOC = E4;
+
+NET "leds[0]" LOC = U18;
+NET "leds[1]" LOC = M14;
+NET "leds[2]" LOC = N14;
+NET "leds[3]" LOC = L14;
+NET "leds[4]" LOC = M13;
+NET "leds[5]" LOC = D4;
+NET "leds[6]" LOC = P16;
+NET "leds[7]" LOC = N12;
+
+NET "rs232_tx" LOC=B16;
+NET "rs232_rx" LOC=A16;
+#NET "UartRx" LOC = "A16"; # Bank = 0, Pin name = IO_L66N_SCP0, Sch name = USBB-RXD
+#NET "UartTx" LOC = "B16"; # Bank = 0, Pin name = IO_L66P_SCP1, Sch name = USBB-TXD
+NET "reset" LOC=T15;
+NET "clk" LOC=L15;

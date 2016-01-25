@@ -1,0 +1,117 @@
+;================================================================
+; Port address definitions...
+;================================================================
+
+CONSTANT switches         , 00    ; Switch read port
+CONSTANT leds	        , 01    ; LED write port
+CONSTANT uart_data_rx     , 02    ; UART receive read port
+CONSTANT uart_data_tx     , 03    ; UART transmit write port
+CONSTANT data_present     , 04    ; UART stat read port, lsb
+CONSTANT buffer_full      , 05    ; UART stat read port, lsb
+
+;uart_data_rx DSIN $02
+;data_present DSIN $04
+;switches DSIN $00
+;buffer_full DSIN $05
+
+;leds DSOUT $01
+;uart_data_tx DSOUT $3
+
+
+;================================================================
+; Actual assembly program goes here...
+;
+; NOTE: size limit is 4096 lines of actual assembly code
+;       Old documentation says it is 1024. This is now incorrect.
+;================================================================
+
+cold_start:     LOAD     s0, s0            ; (nop)
+                CALL load_welcome_string
+string_print_loop:
+				AND s0, s0
+				JUMP Z, finished_string		; loop while we haven't reached the end of the string
+				SUB s0, 01
+				FETCH s1, (s0)				; get the string from scratch
+				
+				CALL wait_for_cts			; twiddle our thumbs if the buffer is full
+				
+				OUTPUT s1, uart_data_tx
+				JUMP string_print_loop
+				finished_string:
+
+led_echo:       LOAD     s0, s0            ; (nop)
+
+                INPUT s0, switches	 	; grab values of switches
+				XOR s0, FF			; invert
+				OUTPUT s0, leds		; output to LEDs
+
+rs232_echo:     LOAD     s0, s0            ; (nop)
+
+				INPUT s0, data_present
+				AND s0, s0
+				JUMP Z, led_echo			; nothing to echo back, endless loop
+				INPUT s0, uart_data_rx
+
+				CALL wait_for_cts			; twiddle our thumbs if the buffer is full
+				
+
+				OUTPUT s0, uart_data_tx
+				JUMP rs232_echo
+
+
+;================================================================
+; Other funcs below
+;================================================================
+
+wait_for_cts:				; twiddle our thumbs if the buffer is full
+INPUT s2, buffer_full
+AND s2, s2
+JUMP NZ, wait_for_cts
+RETURN
+
+
+load_welcome_string:
+; "Welcome to Loopback!" in scratchpad, REVERSE ORDER
+LOAD s0, 57
+STORE s0, 13
+LOAD s0, 65
+STORE s0, 12
+LOAD s0, 6C
+STORE s0, 11
+LOAD s0, 63
+STORE s0, 10
+LOAD s0, 6F
+STORE s0, 0F
+LOAD s0, 6D
+STORE s0, 0E
+LOAD s0, 65
+STORE s0, 0D
+LOAD s0, 20
+STORE s0, 0C
+LOAD s0, 74
+STORE s0, 0B
+LOAD s0, 6F
+STORE s0, 0A
+LOAD s0, 20
+STORE s0, 09
+LOAD s0, 4C
+STORE s0, 08
+LOAD s0, 6F
+STORE s0, 07
+LOAD s0, 6F
+STORE s0, 06
+LOAD s0, 70
+STORE s0, 05
+LOAD s0, 62
+STORE s0, 04
+LOAD s0, 61
+STORE s0, 03
+LOAD s0, 63
+STORE s0, 02
+LOAD s0, 6B
+STORE s0, 01
+LOAD s0, 21
+STORE s0, 00
+
+LOAD s0, 14  			 ; Ret with strlen in s0
+RETURN
