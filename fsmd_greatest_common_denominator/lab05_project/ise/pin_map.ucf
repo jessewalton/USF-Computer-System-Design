@@ -1,0 +1,40 @@
+
+# Mapped to board RESET button: !!!!!ACTIVE LOW!!!!!
+NET "btn_reset" LOC=T15;
+
+# 100 MHz Clock
+NET "clk" LOC=L15;
+
+
+
+
+NET "btn_start" LOC = F5;  # center
+#NET "btn_dwn" LOC = P3;  # down
+#NET "btn_lft" LOC = P4;  # left
+#NET "btn_rt" LOC = F6;   # right
+#NET "btn_up" LOC = N4;   # up
+
+
+
+# 100MHz Clock
+NET "clk" LOC = L15;
+
+# LED Bank
+NET "led_gcd[0]" LOC = U18;
+NET "led_gcd[1]" LOC = M14;
+NET "led_gcd[2]" LOC = N14;
+NET "led_gcd[3]" LOC = L14;
+#NET "leds[4]" LOC = M13;
+#NET "leds[5]" LOC = D4;
+#NET "leds[6]" LOC = P16;
+NET "led_done" LOC = N12;
+
+# Switches
+NET "switch_y[0]" LOC = A10;  # 0
+NET "switch_y[1]" LOC = D14;  # 1
+NET "switch_y[2]" LOC = C14;  # 2
+NET "switch_y[3]" LOC = P15;  # 3
+NET "switch_x[0]" LOC = P12;  # 4
+NET "switch_x[1]" LOC = R5;   # 5
+NET "switch_x[2]" LOC = T5;   # 6
+NET "switch_x[3]" LOC = E4;   # 7
