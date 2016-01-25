@@ -1,0 +1,9 @@
+# PMOD Connector
+ NET "hw_lcd_dat[0]"  LOC = "T3"; # 1 Bank = 2,  Pin name = IO_L62N_D6,     Sch name = JA-D0_N
+ NET "hw_lcd_dat[1]"  LOC = "R3"; # 2 Bank = 2,  Pin name = IO_L62P_D5,     Sch name = JA-D0_P
+ NET "hw_lcd_dat[2]"  LOC = "P6"; # 3 Bank = 2,  Pin name = IO_L64N_D9,     Sch name = JA-D2_N
+ NET "hw_lcd_dat[3]"  LOC = "N5"; # 4 Bank = 2,  Pin name = IO_L64P_D8,     Sch name = JA-D2_P
+ NET "hw_lcd_rs"  LOC = "V9"; # 5 Bank = 2,  Pin name = IO_L32N_GCLK28, Sch name = JA-CLK_N
+ NET "hw_lcd_rw"  LOC = "T9"; # 6 Bank = 2,  Pin name = IO_L32P_GCLK29, Sch name = JA-CLK_P
+ NET "hw_lcd_e"  LOC = "V4"; # 7 Bank = 2,  Pin name = IO_L63N,        Sch name = JA-D1_N
+ NET "hw_lcd_k"  LOC = "T4"; # 8 Bank = 2,  Pin name = IO_L63P,        Sch name = JA-D1_P

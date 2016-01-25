@@ -1,0 +1,35 @@
+# 100 MHz Clock
+NET "hw_clock100" LOC=L15;
+
+
+# Mapped to board RESET button: !!!!!ACTIVE LOW!!!!!
+NET "hw_nreset" LOC=T15;
+
+
+NET "hw_but_select" LOC = F5;  # center
+NET "hw_but_back" LOC = P3;  # down
+NET "hw_but_down" LOC = P4;  # left
+NET "hw_but_up" LOC = F6;   # right
+# NET "hw_but_up" LOC = N4;   # up
+
+
+
+# LED Bank
+NET "hw_leds[0]" LOC = U18;
+NET "hw_leds[1]" LOC = M14;
+NET "hw_leds[2]" LOC = N14;
+NET "hw_leds[3]" LOC = L14;
+NET "hw_leds[4]" LOC = M13;
+NET "hw_leds[5]" LOC = D4;
+NET "hw_leds[6]" LOC = P16;
+NET "hw_leds[7]" LOC = N12;
+
+# Switches
+#NET "hw_switches[0]" LOC = A10;  # 0
+#NET "hw_switches[1]" LOC = D14;  # 1
+#NET "hw_switches[2]" LOC = C14;  # 2
+#NET "hw_switches[3]" LOC = P15;  # 3
+#NET "hw_switches[4]" LOC = P12;  # 4
+#NET "hw_switches[5]" LOC = R5;   # 5
+#NET "hw_switches[6]" LOC = T5;   # 6
+#NET "hw_switches[7]" LOC = E4;   # 7
